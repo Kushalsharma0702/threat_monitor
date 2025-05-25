@@ -37,7 +37,8 @@ pip install -r requirements.txt
 .\venv\Scripts\activate
 pip install fastapi uvicorn
 pip install pandas
-
+cd api
+uvicorn server:app --reload --port 8000
 Your backend will now be running at:           (pip install pandas - needed )
 http://127.0.0.1:8000/api/threats
 
@@ -56,7 +57,7 @@ uvicorn is used .
 Frontend Setup (React) cd ../frontend # or wherever your React app is
 for this you have to open two windows in powershell and run commands simultaneously
 in window 1 , where you are in...
-(\__\__\threat_monitor)  - run this command - uvicorn api.server:app --reload 
+(\__\__\threat_monitor\api)  - run this command -uvicorn server:app --reload --port 8000
 in window 2 , where you are in ...
 (\__\__\frontend) - run this commands
 npm install 
@@ -67,16 +68,15 @@ http://localhost:8080/
 # mac
 in window 1 of powershell :
 cd frontend
-npm install --no-optional --loglevel=error
 npm run dev
 pip install fastapi uvicorn
 pip install pandas
 uvicorn api.server:app --reload
 In your frontend directory, run:
-rm -rf node_modules package-lock.json
 npm cache clean --force
 npm install --no-optional
 npm install @rollup/rollup-darwin-arm64
+npm run dev
 npm run build
 npx serve dist
 now frontend is ssuccseful
